@@ -1,0 +1,11 @@
+scikit-learn==1.2.1
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+streamlit
+streamlit-option-menu
+joblib
+boto3
+pytest
