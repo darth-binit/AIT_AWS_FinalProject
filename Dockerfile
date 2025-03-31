@@ -9,7 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy just the app.py file into /Application/app.py inside the container
 COPY Application /Application
 
-# Debug: Show what got copied
+# Debug: Show what got copy here
 RUN ls -al /Application
 
 # Expose port 8501 (the default for Streamlit)
