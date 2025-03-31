@@ -24,7 +24,7 @@ phases:
   pre_build:
     commands:
       - echo "Running tests with pytest..."
-      - pytest Application/test_model.py
+      - pytest Project_Folder/test_model.py
   build:
     commands:
       - echo "Building Docker image..."
