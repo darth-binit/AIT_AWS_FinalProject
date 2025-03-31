@@ -13,7 +13,7 @@ phases:
       - yum update -y
       - yum install -y jq
       - echo "Installing Python dependencies..."
-      - pip install -r requirements.txt
+      - pip install --no-cache-dir -r requirements.txt
       - pip install pytest
       - echo "Retrieving Docker Hub credentials from Secrets Manager using SECRET_NAME..."
       - export DOCKER_CRED=$(aws secretsmanager get-secret-value --secret-id $SECRET_NAME --query SecretString --output text)
