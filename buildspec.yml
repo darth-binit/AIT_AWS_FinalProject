@@ -7,10 +7,12 @@ env:
 phases:
   install:
     runtime-versions:
+      docker: 20
       python: 3.9
     commands:
-      - echo "Updating package lists and installing jq..."
-      - apt-get update && apt-get install -y jq
+      - echo "Updating package lists and installing jq using yum..."
+      - yum update -y
+      - yum install -y jq
       - echo "Installing Python dependencies..."
       - pip install -r requirements.txt
       - pip install pytest
