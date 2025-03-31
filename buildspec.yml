@@ -28,11 +28,11 @@ phases:
   build:
     commands:
       - echo "Building Docker image..."
-      - docker build -t my-dockerhub-username/myapp:latest .
+      - docker build -t binit13/aws-final-app:latest .
   post_build:
     commands:
       - echo "Pushing Docker image to Docker Hub..."
-      - docker push my-dockerhub-username/myapp:latest
+      - docker push binit13/aws-final-app:latest
 
 artifacts:
   files:
