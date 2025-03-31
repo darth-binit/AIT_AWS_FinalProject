@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY Project_Folder /Application
 
 # Debug: Show what got copy here
-RUN ls -al /Project_Folder
+RUN ls -al /Application
 
 # Expose port 8501 (the default for Streamlit)
 EXPOSE 8501
