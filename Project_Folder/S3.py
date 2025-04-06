@@ -5,15 +5,16 @@ import tarfile
 
 
 def download_and_extract_model_artifacts():
-    bucket_name = "finalprojectait2025"
-    # Use the fixed key for your latest model tarball
+    bucket_name = "finalprojectait-2025"
+
+
     s3_key = "models/latest/model.tar.gz"
 
     # Define local paths for the tarball and extraction folder
     local_tar_path = os.path.join(os.getcwd(), "model.tar.gz")
     extract_dir = os.path.join(os.getcwd(), "model_artifacts")
 
-    s3 = boto3.client("s3", region_name="us-east-2")
+    s3 = boto3.client("s3", region_name="us-east-1")
     print(f"Downloading s3://{bucket_name}/{s3_key} to {local_tar_path} ...")
     s3.download_file(bucket_name, s3_key, local_tar_path)
 
@@ -30,7 +31,7 @@ def download_and_extract_model_artifacts():
 
 
 def download_model_artifacts():
-    bucket_name = "finalprojectait2025"
+    bucket_name = "finalprojectait-2025"
     # Define S3 keys for your artifacts
     s3_keys = {
         "random_forest_model.pkl": "models/random_forest_model.pkl",
