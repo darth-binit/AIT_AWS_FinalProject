@@ -6,12 +6,10 @@ import tarfile
 
 def download_and_extract_model_artifacts():
     bucket_name = "finalprojectait-2025"
-
-
-    s3_key = "models/latest/model.tar.gz"
+    s3_key = "models/latest/model.tar"  #
 
     # Define local paths for the tarball and extraction folder
-    local_tar_path = os.path.join(os.getcwd(), "model.tar.gz")
+    local_tar_path = os.path.join(os.getcwd(), "model.tar")  #
     extract_dir = os.path.join(os.getcwd(), "model_artifacts")
 
     s3 = boto3.client("s3", region_name="us-east-1")
@@ -22,8 +20,8 @@ def download_and_extract_model_artifacts():
     if not os.path.exists(extract_dir):
         os.makedirs(extract_dir)
 
-    # Extract the tarball (assuming it's a gzipped tar file)
-    with tarfile.open(local_tar_path, "r:gz") as tar:
+    # Extract the tarball (non-gzipped tar file)
+    with tarfile.open(local_tar_path, "r:") as tar:
         tar.extractall(path=extract_dir)
 
     print("Extraction complete. Files are in:", extract_dir)
