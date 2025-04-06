@@ -233,6 +233,12 @@ if select == "Predictive Analytics":
         fig.update_traces(fill='toself', line_color='green')
         st.plotly_chart(fig, use_container_width=True)
 
+        brand_lower = brand.lower()
+        image_path = os.path.join(BASE_DIR, "brand_img",
+                                  f"{brand_lower}.png")  # assuming your images are in /images directory
+        if os.path.exists(image_path):
+            st.image(image_path, caption=f"{brand} Visual", width=400)
+
 
     if predict_btn:
         pred_val = predict(usr_data)[0]
