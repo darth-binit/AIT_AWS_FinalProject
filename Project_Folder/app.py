@@ -55,6 +55,19 @@ print(df.head(5))
 cat_col = df.select_dtypes(include='object').columns.tolist()
 num_col = df.select_dtypes(include='number').columns.tolist()
 
+def show_centered_image(image_path, brand):
+    import base64
+
+    with open(image_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+
+    st.markdown(f"""
+    <div style="text-align: center;">
+        <img src="data:image/png;base64,{encoded_string}" width="400" alt="{brand} Logo">
+        <p style="font-weight: bold; font-size: 18px;">{brand} Visual</p>
+    </div>
+    """, unsafe_allow_html=True)
+
 # -----------------------------
 # Define a prediction function that uses the loaded artifacts.
 # -----------------------------
@@ -236,9 +249,10 @@ if select == "Predictive Analytics":
         brand_lower = brand.lower()
         image_path = os.path.join(BASE_DIR, "brand_img",
                                   f"{brand_lower}.png")  # assuming your images are in /images directory
+        # if os.path.exists(image_path):
+        #     st.image(image_path, caption=f"{brand} Visual", width=400)
         if os.path.exists(image_path):
-            st.image(image_path, caption=f"{brand} Visual", width=400)
-
+            show_centered_image(image_path, brand)
 
     if predict_btn:
         pred_val = predict(usr_data)[0]
